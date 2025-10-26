@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burundi Digital Marketboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <section id="hero">
+    <video autoplay muted loop playsinline id="hero-video">
+      <source src="assets/hero.mp4" type="video/mp4">
+      <img src="assets/fallback.jpg" alt="Burundi Digital Marketboard" id="hero-fallback">
+    </video>
+    <div class="hero-overlay">
+      <h1>🌍 Burundi Digital Marketboard</h1>
+      <p>✨ Ihuriro ry’abacuruzi n’abaguzi — ibicuruzwa vyemewe gusa</p>
+      <a href="#catalogue" class="cta-button">Reba Catalogue</a>
+    </div>
+  </section>
+
+  <!-- CATALOGUE SECTION -->
+  <section id="catalogue" class="glass-section">
+    <h2>🛍️ Ibicuruzwa bihari</h2>
+
+    <!-- Search & Filter -->
+    <div class="filters">
+      <input type="text" id="search" placeholder="🔎 Shakisha izina...">
+      <select id="category">
+        <option value="">-- Hitamo Category --</option>
+        <option value="Clothes">👕 Clothes</option>
+        <option value="Shoes">👟 Shoes</option>
+        <option value="Accessories">💍 Accessories</option>
+      </select>
+    </div>
+
+    <!-- Loading -->
+    <div id="loading" class="spinner">⏳ Turiko turashakisha ibicuruzwa...</div>
+
+    <!-- Product List -->
+    <div id="product-list" class="product-grid"></div>
+  </section>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast">🛑 Ntitwashoboye kubona ibicuruzwa.</div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
