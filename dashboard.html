@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Provider Dashboard - Burundi Digital Marketboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section class="glass-section">
+    <h2>📦 Provider Dashboard</h2>
+
+    <!-- LOGIN SECTION -->
+    <div id="auth-section">
+      <h3>🔑 Injira</h3>
+      <input type="email" id="email" placeholder="Email yawe" required>
+      <input type="password" id="password" placeholder="Ijambo banga" required>
+      <button id="login-btn">Injira</button>
+    </div>
+
+    <!-- PRODUCT FORM -->
+    <form id="product-form" style="display:none; margin-top:2rem;">
+      <h3>➕ Shyiraho Igicuruzwa Gishasha</h3>
+      <input type="text" id="name" placeholder="Izina ry'igicuruzwa" required>
+      <input type="number" id="price" placeholder="Igiciro (Fbu)" required>
+      <textarea id="description" placeholder="Ibisobanuro" required></textarea>
+      <input type="text" id="image_url" placeholder="Image URL" required>
+      <select id="category" required>
+        <option value="">-- Hitamo Category --</option>
+        <option value="Clothes">👕 Clothes</option>
+        <option value="Shoes">👟 Shoes</option>
+        <option value="Accessories">💍 Accessories</option>
+      </select>
+      <button type="submit">Ohereza</button>
+    </form>
+  </section>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
