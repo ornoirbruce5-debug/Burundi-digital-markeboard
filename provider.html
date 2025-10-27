@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Marketboard — Provider Dashboard</title>
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/style.css">
+  <meta name="theme-color" content="#a6c1ee">
+</head>
+<body>
+
+  <main class="provider-shell" id="main">
+    <header class="provider-header">
+      <a href="/" class="btn">← Sura Landing</a>
+      <h1 class="provider-title">Provider Dashboard</h1>
+      <div class="provider-actions">
+        <button id="authBtn" class="btn">Injira / Koresha Email</button>
+        <button id="signOutBtn" class="btn hidden">Sohoka</button>
+      </div>
+    </header>
+
+    <section class="provider-grid">
+      <aside class="provider-pane submit-pane" aria-labelledby="submit-title">
+        <h2 id="submit-title">Tanga Igicuruzwa</h2>
+        <form id="productForm" class="form-card" autocomplete="off">
+          <label class="form-row">
+            <span>Izina</span>
+            <input name="name" required />
+          </label>
+
+          <label class="form-row">
+            <span>Ibisobanuro</span>
+            <textarea name="description" rows="4"></textarea>
+          </label>
+
+          <label class="form-row">
+            <span>Igiciro (FBu)</span>
+            <input name="price" type="number" min="0" step="0.01" required />
+          </label>
+
+          <label class="form-row">
+            <span>Ifoto</span>
+            <input id="productImage" name="image" type="file" accept="image/*" />
+          </label>
+
+          <div class="form-row form-actions">
+            <button type="submit" class="btn cta">Ohereza (Pending)</button>
+            <div id="providerStatus" class="muted small"></div>
+          </div>
+        </form>
+
+        <div class="notes glass">
+          <strong>Inama</strong>
+          <ul>
+            <li>Zana amafoto meza; 1024×768 byiza.</li>
+            <li>Nyuma yo kohereza, admin izagenzura mbere yo kugaragara muri catalogue.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="provider-pane list-pane" aria-labelledby="my-products-title">
+        <h2 id="my-products-title">Ibicuruzwa byanjye</h2>
+        <div id="myProducts" class="catalogue-grid provider-cards">
+          <div class="loading">⏳ Kurura ibicuruzwa byawe...</div>
+        </div>
+      </section>
+
+      <section id="admin-panel" class="provider-pane admin-pane" aria-labelledby="admin-title" hidden>
+        <h2 id="admin-title">Admin: Pending Products</h2>
+        <div id="pendingList" class="pending-list">
+          <div class="loading">⏳ Kurura pending...</div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="/provider.js" defer></script>
+</body>
+</html>
