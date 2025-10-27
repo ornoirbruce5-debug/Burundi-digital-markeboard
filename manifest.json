@@ -1,0 +1,74 @@
+{
+  "name": "Burundi Digital Marketboard",
+  "short_name": "Marketboard",
+  "description": "Iguriro ry’urwaruka mu Burundi — catalogue, provider submissions, na PWA installability.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fef3f8",
+  "theme_color": "#a6c1ee",
+  "categories": ["shopping", "marketplace", "social"],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "icons": [
+    {
+      "src": "/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Reba Catalogue",
+      "short_name": "Catalogue",
+      "description": "Jya vuba kuri catalogue y'ibicuruzwa",
+      "url": "/#catalogue",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Ohereza Igicuruzwa",
+      "short_name": "ohereza",
+      "description": "Fungura form yo kwinjiza ibicuruzwa",
+      "url": "/provider/submit",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
