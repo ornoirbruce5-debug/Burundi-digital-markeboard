@@ -1,0 +1,19 @@
+{
+  "status": {
+    "pending": "Itegerejwe",
+    "approved": "Vyemejwe",
+    "denied": "Vyanzwe",
+    "featured": "Vyihariye"
+  },
+  "messages": {
+    "offline": "Uri offline — ongera ugerageze uri online.",
+    "product_submitted": "Igicuruzwa cashyizwe kuri review",
+    "product_failed": "Ntivyashobotse gukora igicuruzwa",
+    "magic_link_sent": "Magic link yoherejwe. Reba email yawe.",
+    "login_prompt": "Injiza email yawe kugirango ubone link yo kwinjira",
+    "approve_confirm": "Wemeza ko ushaka kwemeza iki gicuruzwa?",
+    "deny_confirm": "Wemeza ko ushaka kwanga iki gicuruzwa?",
+    "images_verified": "Amafoto yemejwe",
+    "freemium_limit": "Urampaka rwa freemium rwaruzuye. Ongera upgrade."
+  }
+}
