@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="rw">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Burundi Digital Marketboard</title>
+  <meta name="description" content="BDM — Isoko ry'uruganda rw'urubyiruko n'abacuruzi bato mu Burundi." />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="/icons/192.png" />
+</head>
+<body>
+  <div id="offline-banner" class="offline-banner" aria-hidden="true">Uri offline — ongera ugerageze uri online.</div>
+
+  <header class="nav glass" role="banner">
+    <div class="brand" aria-hidden="true">BDM ✨</div>
+
+    <nav class="nav-links" role="navigation" aria-label="Main">
+      <button id="nav-landing" aria-label="Landing">Landing</button>
+      <button id="nav-provider" aria-label="Provider">Provider</button>
+      <button id="nav-admin" aria-label="Admin">Admin</button>
+    </nav>
+
+    <div class="auth" role="region" aria-label="Authentication">
+      <span id="user-badge" aria-live="polite">Not signed</span>
+      <button id="btn-login">Login</button>
+      <button id="btn-logout" style="display:none">Logout</button>
+    </div>
+  </header>
+
+  <main id="app" class="container" role="main">
+    <!-- SPA views injected here -->
+  </main>
+
+  <!-- Toast container -->
+  <div id="toast" aria-live="polite" class="toast-container" hidden></div>
+
+  <!-- Landing template -->
+  <template id="tpl-landing">
+    <section class="hero glass" aria-labelledby="landing-title">
+      <h1 id="landing-title">Burundi Digital Marketboard</h1>
+      <p class="lead">Abahanga b'urubyiruko n'abacuruzi bato — tumenye ibicuruzwa bya hano.</p>
+
+      <div class="controls" role="search" aria-label="Search products">
+        <input id="search" placeholder="Shakisha ibicuruzwa..." aria-label="Shakisha ibicuruzwa" />
+        <select id="sort" aria-label="Sort">
+          <option value="new">Newest</option>
+          <option value="price_asc">Price ↑</option>
+          <option value="price_desc">Price ↓</option>
+        </select>
+        <button id="toggle-dark" aria-pressed="false">Dark</button>
+      </div>
+    </section>
+
+    <section id="catalog" class="grid" aria-live="polite"></section>
+  </template>
+
+  <!-- Login template -->
+  <template id="tpl-login">
+    <section class="card glass auth-card" aria-labelledby="login-title">
+      <h2 id="login-title">Kwinjira</h2>
+      <p class="muted">Shyiramo email yawe ubone link yo kwinjira (magic link)</p>
+
+      <label for="login-email" class="visually-hidden">Email</label>
+      <input id="login-email" type="email" placeholder="we@ex.com" autocomplete="email" required />
+
+      <div style="margin-top:12px">
+        <button id="send-otp">Ohereza link</button>
+      </div>
+
+      <div id="login-msg" class="muted" role="status"></div>
+    </section>
+  </template>
+
+  <!-- Provider dashboard -->
+  <template id="tpl-provider">
+    <section class="card glass" aria-labelledby="provider-title">
+      <h2 id="provider-title">Provider Dashboard</h2>
+      <p class="muted">Tegura ibicuruzwa, urebe status, usabe featured, kandi ugenzure ibigenda.</p>
+      <div id="provider-actions" style="margin-top:12px">
+        <button id="btn-create-product">Ongeraho igicuruzwa</button>
+        <button id="btn-my-products">Ibihari byanjye</button>
+      </div>
+      <div id="provider-list" style="margin-top:16px"></div>
+    </section>
+  </template>
+
+  <!-- Provider create (image URL mode) -->
+  <template id="tpl-provider-create-urls">
+    <section class="card glass provider-card" aria-labelledby="create-title">
+      <h2 id="create-title">Shyira igicuruzwa (Image URL mode)</h2>
+
+      <form id="product-form-url" class="provider-form" novalidate>
+        <label for="p-title">Umutwe</label>
+        <input id="p-title" name="title" placeholder="Izina ry'igicuruzwa" required />
+
+        <label for="p-desc">Ibisobanuro</label>
+        <textarea id="p-desc" name="description" placeholder="Ibisobanuro bigufi"></textarea>
+
+        <label for="p-price">Igiciro (Fbu)</label>
+        <input id="p-price" name="price" type="number" min="0" placeholder="Igiciro (Fbu)" required />
+
+        <label for="p-tags">Tags</label>
+        <input id="p-tags" name="tags" placeholder="tags (gutandukanya hakoreshejwe comma)" />
+
+        <label for="p-image-urls">Image URLs</label>
+        <textarea id="p-image-urls" name="image_urls" placeholder="Shyiramo URL za images, buri imwe kuri line nshya. Ex: https://i.imgur.com/abc.jpg"></textarea>
+
+        <div id="img-preview" aria-live="polite" style="display:flex;gap:8px;margin-top:8px"></div>
+
+        <label style="display:block;margin-top:10px">
+          <input type="checkbox" id="p-featured" name="featured" /> Saba Featured Listing (paid)
+        </label>
+
+        <div style="margin-top:16px">
+          <button type="submit">Ohereza igicuruzwa</button>
+          <button type="button" id="cancel-create" style="margin-left:8px">Hagarika</button>
+        </div>
+      </form>
+
+      <div id="provider-msg" class="muted" role="status" style="margin-top:12px"></div>
+    </section>
+  </template>
+
+  <!-- Admin template -->
+  <template id="tpl-admin">
+    <section class="card glass" aria-labelledby="admin-title">
+      <h2 id="admin-title">Admin Dashboard</h2>
+      <p class="muted">Emeza/yanga ibicuruzwa, reba payments, kandi ugenzure featured.</p>
+      <div id="admin-body" style="margin-top:12px"></div>
+    </section>
+  </template>
+
+  <script type="module" src="/src/app.js"></script>
+
+  <!-- Service worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('Service Worker registered:', reg.scope))
+          .catch(err => console.warn('SW registration failed:', err));
+      });
+    }
+
+    // Simple offline banner toggle (progressive enhancement)
+    function setOfflineBanner() {
+      const b = document.getElementById('offline-banner');
+      if (!b) return;
+      if (navigator.onLine) {
+        b.setAttribute('aria-hidden', 'true');
+        b.style.display = 'none';
+      } else {
+        b.setAttribute('aria-hidden', 'false');
+        b.style.display = 'block';
+      }
+    }
+    window.addEventListener('online', setOfflineBanner);
+    window.addEventListener('offline', setOfflineBanner);
+    window.addEventListener('load', setOfflineBanner);
+  </script>
+</body>
+</html>
