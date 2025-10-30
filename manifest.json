@@ -1,0 +1,26 @@
+{
+  "name": "Burundi Digital Marketboard",
+  "short_name": "BDM",
+  "description": "Isoko ry'urubyiruko n'abacuruzi bato mu Burundi",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/icons/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "lang": "rw",
+  "categories": ["shopping", "marketplace"],
+  "prefer_related_applications": false
+}
