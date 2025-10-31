@@ -5,8 +5,8 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 /* Replace these placeholders during CI deploy (do not commit real keys) */
-const SUPABASE_URL = 'https://YOUR_PROJECT.supabase.co';
-const SUPABASE_ANON = 'YOUR_PUBLIC_ANON_KEY';
+const SUPABASE_URL = 'https://xeyehhfumcvfvajpnkrr.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhleWVoaGZ1bWN2ZnZhanBua3JyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE0Njk5OTMsImV4cCI6MjA3NzA0NTk5M30.XOxP39uQE6b4A4DIglWD9KEWujfobED9Y_DLTNtN5Qs';
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON, {
   realtime: { params: { eventsPerSecond: 10 } }
